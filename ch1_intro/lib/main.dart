@@ -1,4 +1,5 @@
 import 'package:ch1_intro/friends_list.dart';
+import 'package:ch1_intro/my_stack.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -21,16 +22,17 @@ class Person extends StatelessWidget {
 class FancyHelloWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(title: const Text("A Fancy Hello App")),
-        body: Container(alignment: Alignment.center, child: FriendsList()),
-        floatingActionButton: FloatingActionButton(
-          child: const Icon(Icons.thumb_up),
-          onPressed: () => {},
-        ),
-      ),
-    );
+    return MyStack();
+    // return MaterialApp(
+    //   home: Scaffold(
+    //     appBar: AppBar(title: const Text("A Fancy Hello App")),
+    //     body: Container(alignment: Alignment.center, child: FriendsList()),
+    //     floatingActionButton: FloatingActionButton(
+    //       child: const Icon(Icons.thumb_up),
+    //       onPressed: () => {},
+    //     ),
+    //   ),
+    // );
   }
 }
 
