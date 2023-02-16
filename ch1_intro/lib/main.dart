@@ -1,11 +1,15 @@
 import 'package:ch1_intro/friends_list.dart';
+import 'package:ch1_intro/my_drawer_scaffold.dart';
 import 'package:ch1_intro/my_stack.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
-  runApp(FancyHelloWidget());
+  runApp(MaterialApp(
+    home: MyDrawerScaffold(),
+    routes: routesMap
+  ));
 }
 
 class Person extends StatelessWidget {
