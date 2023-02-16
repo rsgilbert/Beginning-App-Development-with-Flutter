@@ -1,13 +1,14 @@
 import 'package:ch1_intro/friends_list.dart';
 import 'package:ch1_intro/my_drawer_scaffold.dart';
 import 'package:ch1_intro/my_stack.dart';
+import 'package:ch1_intro/my_tab.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: MyDrawerScaffold(),
+    home: MyTab(),
     routes: routesMap
   ));
 }
