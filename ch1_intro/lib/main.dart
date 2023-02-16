@@ -1,3 +1,5 @@
+import 'package:ch1_intro/friends_list.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -22,7 +24,7 @@ class FancyHelloWidget extends StatelessWidget {
     return MaterialApp(
       home: Scaffold(
         appBar: AppBar(title: const Text("A Fancy Hello App")),
-        body: Container(alignment: Alignment.center, child: MyForm()),
+        body: Container(alignment: Alignment.center, child: FriendsList()),
         floatingActionButton: FloatingActionButton(
           child: const Icon(Icons.thumb_up),
           onPressed: () => {},
@@ -42,25 +44,24 @@ class MyForm extends StatelessWidget {
     return Form(
         key: _key,
         autovalidateMode: AutovalidateMode.always,
-        
         child: Column(children: [
+          MyDismissible(),
           TextFormField(
             controller: _controller,
             validator: (value) {
-              if(value != null && value.length < 5) { return "Too short"; }
+              if (value != null && value.length < 5) {
+                return "Too short";
+              }
               return null;
             },
           ),
-          FormField(
-            builder: (state) {
-              return Checkbox(
-                value: false, 
+          FormField(builder: (state) {
+            return Checkbox(
+                value: false,
                 onChanged: (val) {
                   _key.currentState?.validate();
-                }
-              );
-            }
-          )
+                });
+          })
           // FormField<String>(
           //   builder: (state) {
           //     return TextField(
@@ -84,7 +85,7 @@ class MyForm extends StatelessWidget {
           //     return "bad bad";
           //   },
           // ),
-          
+
           // Checkbox(value: false, onChanged: (val) => print('Val is $val')),
           // Switch(
           //   value: true,
@@ -94,6 +95,22 @@ class MyForm extends StatelessWidget {
           // MySliderWidget(),
           // MyDropdownMenu()
         ]));
+  }
+}
+
+class MyDismissible extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Dismissible(
+      key: const Key("f"),
+      background: Container(color: Colors.red),
+      direction: DismissDirection.horizontal,
+      child: ListTile(title: Text("Hey there")),
+      secondaryBackground: Container(color: Colors.yellow),
+      onDismissed: (direction) {
+        print("You swiped $direction");
+      },
+      );
   }
 }
 
