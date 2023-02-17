@@ -1,4 +1,5 @@
 import 'package:ch1_intro/friends_list.dart';
+import 'package:ch1_intro/my_dialog.dart';
 import 'package:ch1_intro/my_drawer_scaffold.dart';
 import 'package:ch1_intro/my_stack.dart';
 import 'package:ch1_intro/my_tab.dart';
@@ -8,7 +9,7 @@ import 'package:flutter/services.dart';
 
 void main() {
   runApp(MaterialApp(
-    home: MyTab(),
+    home: MyDialogCreator(),
     routes: routesMap
   ));
 }
